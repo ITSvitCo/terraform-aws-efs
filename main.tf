@@ -58,6 +58,6 @@ module "dns" {
   name    = "${module.label.id}"
   ttl     = 60
   zone_id = "${var.zone_id}"
-  records = ["${aws_efs_file_system.default.id}.efs.${var.aws_region}.amazonaws.com"]
+  records = ["${join("",aws_efs_file_system.default.*.id)}.efs.${var.aws_region}.amazonaws.com"]
   enabled = "${local.efs_count > 0 ? "true" : "false"}"
 }
