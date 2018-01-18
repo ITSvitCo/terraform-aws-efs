@@ -42,3 +42,7 @@ variable "tags" {
   type    = "map"
   default = {}
 }
+
+variable "enabled" {
+  default = "true"
+}
